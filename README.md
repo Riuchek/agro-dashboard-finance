@@ -77,7 +77,3 @@ cd frontend && pnpm install && pnpm dev
 | [docs/apis.md](docs/apis.md) | External sources and units |
 | [docs/roadmap.md](docs/roadmap.md) | Delivery checklist |
 | [docs/ADRs](docs/ADRs/README.md) | Why we chose each technical option |
-
-## Responsible use of sources
-
-Personal / learning project. Follow each provider’s terms — especially CEPEA: low rate, identifiable User-Agent, no hammering.

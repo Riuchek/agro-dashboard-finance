@@ -2,7 +2,7 @@
 
 - **Date**: 2026-07-30
 - **Status**: Accepted
-- **Deciders**: João Correia
+- **Deciders**: João Marinho
 - **Tags**: scraping, backend, cepea
 
 ## Context and Problem Statement

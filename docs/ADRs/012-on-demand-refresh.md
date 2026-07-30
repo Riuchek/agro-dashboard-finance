@@ -2,7 +2,7 @@
 
 - **Date**: 2026-07-30
 - **Status**: Accepted
-- **Deciders**: João Correia (with recommendation)
+- **Deciders**: João Marinho (with recommendation)
 - **Tags**: cache, backend
 
 ## Context and Problem Statement

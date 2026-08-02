@@ -9,7 +9,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <section class="overflow-hidden rounded-xl border border-slate-700/60 bg-slate-900 shadow-xl shadow-black/20">
+  <section class="overflow-hidden rounded-xl mt-4 border border-slate-700/60 bg-slate-900 shadow-xl shadow-black/20">
     <header class="flex items-center justify-between border-b border-slate-700/60 bg-slate-800/80 px-5 py-4">
       <div class="flex items-center gap-3">
         <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-500/10 ring-1 ring-emerald-500/30">

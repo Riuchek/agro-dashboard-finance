@@ -1,5 +1,19 @@
 function formatValue(value: number, unit: string) {
-    if (unit === 'BRL' || unit === 'R$') {
+    if (unit === 'BRL/share' || unit === 'BRL' || unit === 'R$') {
+      return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      }).format(value)
+    }
+
+    if (unit === 'USD/share' || unit === 'USD') {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      }).format(value)
+    }
+
+    if (unit === 'BRL/USD') {
       return new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
@@ -11,8 +25,18 @@ function formatValue(value: number, unit: string) {
       maximumFractionDigits: 4,
     }).format(value)} ${unit}`
   }
+
+function formatVariation(value: number) {
+    const formatted = new Intl.NumberFormat('pt-BR', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+      signDisplay: 'exceptZero',
+    }).format(value)
+
+    return `${formatted}%`
+}
   
-  function formatUpdatedAt(iso: string) {
+function formatUpdatedAt(iso: string) {
     if (!iso) {
       return '—'
     }
@@ -26,4 +50,4 @@ function formatValue(value: number, unit: string) {
     }).format(new Date(iso))
   }
 
-export { formatValue, formatUpdatedAt }
+export { formatValue, formatVariation, formatUpdatedAt }

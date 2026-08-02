@@ -30,7 +30,8 @@ func main() {
 		cache.SourceHGBrasil: hgbrasil.NewClient(cfg.HGBrasilToken),
 	}
 
-	quotesService := quotes.NewService(cacheStore, providers)
+	hgClient := hgbrasil.NewClient(cfg.HGBrasilToken)
+	quotesService := quotes.NewService(cacheStore, providers, hgClient)
 	overviewService := overview.NewService(quotesService)
 
 	server := httpserver.New(cfg.HTTPAddr, httpserver.Dependencies{

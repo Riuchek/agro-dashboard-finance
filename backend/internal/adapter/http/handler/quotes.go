@@ -45,13 +45,29 @@ func (h *Quotes) Commodities(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Quotes) FX(w http.ResponseWriter, r *http.Request) {
-	quote, err := h.service.GetFX(r.Context())
+	rate, err := h.service.GetFXRate(r.Context())
 	if err != nil {
 		response.Error(w, http.StatusBadGateway, err.Error())
 		return
 	}
 
-	response.JSON(w, http.StatusOK, quote)
+	response.JSON(w, http.StatusOK, rate)
+}
+
+func (h *Quotes) StocksUSD(w http.ResponseWriter, r *http.Request) {
+	symbols := splitQueryParam(r, "symbols")
+	if len(symbols) == 0 {
+		response.Error(w, http.StatusBadRequest, "symbols query param is required")
+		return
+	}
+
+	payload, err := h.service.GetStocksUSD(r.Context(), symbols)
+	if err != nil {
+		response.Error(w, http.StatusBadGateway, err.Error())
+		return
+	}
+
+	response.JSON(w, http.StatusOK, payload)
 }
 
 func splitQueryParam(r *http.Request, key string) []string {

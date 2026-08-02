@@ -26,6 +26,7 @@ func New(addr string, deps Dependencies) *Server {
 	mux.HandleFunc("GET /api/v1/quotes/stocks", deps.Quotes.Stocks)
 	mux.HandleFunc("GET /api/v1/quotes/commodities", deps.Quotes.Commodities)
 	mux.HandleFunc("GET /api/v1/quotes/fx", deps.Quotes.FX)
+	mux.HandleFunc("GET /api/v1/quotes/stocks-usd", deps.Quotes.StocksUSD)
 	mux.HandleFunc("GET /api/v1/dashboard/overview", deps.Overview.Get)
 
 	var h http.Handler = mux

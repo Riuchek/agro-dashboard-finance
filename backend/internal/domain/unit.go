@@ -7,4 +7,5 @@ const (
 	UnitBRLPerArroba Unit = "BRL/@"
 	UnitBRLPerBag   Unit = "BRL/bag"
 	UnitBRLPerUSD   Unit = "BRL/USD"
+	UnitUSDPerShare Unit = "USD/share"
 )

@@ -2,7 +2,7 @@
 const { quotesResponse } = useQuote()
 const { overviewResponse } = useOverview()
 const { commoditiesResponse } = useCommodities()
-const { fxResponse } = useFx()
+const { stocksUsdResponse } = useStocksUsd()
 </script>
 
 <template>
@@ -24,7 +24,7 @@ const { fxResponse } = useFx()
 
       <CommoditiesCard :commodities="commoditiesResponse" />
 
-      <FxCard :fx="fxResponse" />
+      <StocksUsdCard :stocks-usd="stocksUsdResponse" />
 
       <OverviewCard :overview="overviewResponse" />
     </div>

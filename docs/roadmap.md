@@ -1,9 +1,5 @@
 # Roadmap — delivery checklist
 
-Check items as you go. Each can become a GitHub Issue.
-
----
-
 ## Phase 0 — Foundation
 
 - [ ] **#1** Backend scaffold: `net/http` (Go 1.22+ ServeMux), env config, middleware (CORS allowlist, recover, request log), bind localhost, `GET /health`

@@ -1,0 +1,15 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "127.0.0.1:6379:6379"
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+
+  # Uncomment when you want the API inside Compose as well.
+  # api:
+  #   build: ./backend
+  #   env_file: ./backend/.env
+  #   depends_on:
+  #     - redis
+  #   ports:
+  #     - "127.0.0.1:8080:8080"

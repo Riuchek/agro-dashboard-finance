@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 const { quotesResponse } = useQuote()
+const { overviewResponse } = useOverview()
+const { commoditiesResponse } = useCommodities()
+const { fxResponse } = useFx()
 </script>
 
 <template>
@@ -18,6 +21,12 @@ const { quotesResponse } = useQuote()
       </header>
 
       <QuotesCard :quote="quotesResponse" />
+
+      <CommoditiesCard :commodities="commoditiesResponse" />
+
+      <FxCard :fx="fxResponse" />
+
+      <OverviewCard :overview="overviewResponse" />
     </div>
   </main>
 </template>

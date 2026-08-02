@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import type { QuotesResponse } from '../../types/quotes'
+import type { OverviewResponse } from '../../types/overview'
 import { formatValue, formatUpdatedAt } from '../../utils/utils'
 
 const props = defineProps<{
-  quote?: QuotesResponse | null
+  overview?: OverviewResponse | null
 }>()
 
 
 </script>
 
 <template>
-  <section class="overflow-hidden rounded-xl border border-slate-700/60 bg-slate-900 shadow-xl shadow-black/20">
+  <section class="overflow-hidden rounded-xl mt-4 border border-slate-700/60 bg-slate-900 shadow-xl shadow-black/20">
     <header class="flex items-center justify-between border-b border-slate-700/60 bg-slate-800/80 px-5 py-4">
       <div class="flex items-center gap-3">
         <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-500/10 ring-1 ring-emerald-500/30">
@@ -31,27 +31,27 @@ const props = defineProps<{
         </div>
         <div>
           <h2 class="text-sm font-semibold tracking-wide text-slate-100">
-            Cotações
+            Visão Geral
           </h2>
           <p class="text-xs text-slate-400">
-            Mercado em tempo real
+            Acompanhe as cotações dos principais ativos do agronegócio.
           </p>
         </div>
       </div>
       <span
-        v-if="props.quote?.quotes?.length"
+        v-if="props.overview?.stocks?.length"
         class="rounded-full bg-slate-700/80 px-2.5 py-1 text-xs font-medium tabular-nums text-slate-300"
       >
-        {{ props.quote.quotes.length }} ativos
+        {{ props.overview.stocks.length }} ações
       </span>
     </header>
 
     <div
-      v-if="props.quote?.errors?.length"
+      v-if="props.overview?.errors?.length"
       class="border-b border-amber-500/20 bg-amber-500/10 px-5 py-3"
     >
       <p
-        v-for="error in props.quote.errors"
+        v-for="error in props.overview.errors"
         :key="error"
         class="text-xs text-amber-300"
       >
@@ -60,7 +60,7 @@ const props = defineProps<{
     </div>
 
     <div
-      v-if="!props.quote?.quotes?.length"
+      v-if="!props.overview?.stocks?.length"
       class="px-5 py-12 text-center"
     >
       <p class="text-sm text-slate-400">
@@ -94,7 +94,7 @@ const props = defineProps<{
         </thead>
         <tbody class="divide-y divide-slate-700/40">
           <tr
-            v-for="item in props.quote.quotes"
+            v-for="item in props.overview.stocks"
             :key="item.key"
             class="transition-colors hover:bg-slate-800/50"
           >

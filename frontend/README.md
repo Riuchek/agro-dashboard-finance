@@ -1,61 +1,75 @@
-# Frontend — Agro Dashboard Finance
+# Nuxt Minimal Starter
 
-Next.js App Router dashboard that consumes the local Go API. See [docs/lessons](../docs/lessons/README.md) for stack learning notes.
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Prerequisites
+## Setup
 
-- Node (see repo `.tool-versions` or `frontend/.tool-versions`)
-- Backend running at `http://127.0.0.1:8080` — [docs/running-locally.md](../docs/running-locally.md)
-
-## Run
+Make sure to install dependencies:
 
 ```bash
+# npm
+npm install
+
+# pnpm
 pnpm install
+
+# yarn
+yarn install
+
+# bun
+bun install
+```
+
+## Development Server
+
+Start the development server on `http://localhost:3000`:
+
+```bash
+# npm
+npm run dev
+
+# pnpm
 pnpm dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+## Production
 
-## Scripts
+Build the application for production:
 
-| Command | Purpose |
-| :--- | :--- |
-| `pnpm dev` | Dev server |
-| `pnpm build` | Production build |
-| `pnpm start` | Serve production build |
-| `pnpm lint` | ESLint |
+```bash
+# npm
+npm run build
 
-## Stack
+# pnpm
+pnpm build
 
-- Next.js 16 App Router, React 19, TypeScript
-- Tailwind CSS 4, React Compiler
-- pnpm — [ADR-008](../docs/ADRs/008-pnpm.md)
+# yarn
+yarn build
 
-## Project layout
-
-Target structure (see [lesson 02](../docs/lessons/02-folder-architecture.md)):
-
-```
-src/
-  app/           # routes
-  components/    # UI (to add)
-  hooks/         # client logic (to add)
-  lib/           # API client, formatters (to add)
-  types/         # DTOs matching Go API (to add)
+# bun
+bun run build
 ```
 
-## API integration (planned)
+Locally preview production build:
 
-The overview page will call:
+```bash
+# npm
+npm run preview
 
-- `GET http://127.0.0.1:8080/api/v1/dashboard/overview`
+# pnpm
+pnpm preview
 
-Until Phase 2 UI work lands, use curl against the backend ([running-locally.md](../docs/running-locally.md)).
+# yarn
+yarn preview
 
-CORS is configured via backend `CORS_ALLOW_ORIGINS=http://localhost:3000`.
+# bun
+bun run preview
+```
 
-## Docs
-
-- [docs/roadmap.md](../docs/roadmap.md) — Phase 2 checklist (#13–#14)
-- [docs/ADRs/010-next-app-router.md](../docs/ADRs/010-next-app-router.md)
-- [AGENTS.md](./AGENTS.md) — agent notes for this Next.js version
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

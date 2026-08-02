@@ -4,6 +4,23 @@ Reference for APIs and sources used to monitor agri equities, futures, physical 
 
 ---
 
+## Backend integration status
+
+How each source maps into the Go API today (`backend/internal/adapter/provider/`).
+
+| Source | Cache prefix | Request keys | Provider status |
+| :--- | :--- | :--- | :--- |
+| **Brapi** | `brapi:` | B3 tickers (`SLCE3`, `AGRO3`, `SMTO3`, …) | **Live** — `GET /api/v1/quotes/stocks?symbols=…` |
+| **CEPEA** | `cepea:` | `boi-gordo`, `soja`, `milho` | **Stub** — `GET /api/v1/quotes/commodities?keys=…` returns `provider not implemented yet` |
+| **HG Brasil** | `hgbrasil:` | `usd-brl` (internal key for FX) | **Stub** — `GET /api/v1/quotes/fx` returns not implemented |
+| Yahoo Finance | — | — | Not started ([roadmap #15](roadmap.md)) |
+| IBGE SIDRA | — | — | Not started ([roadmap #16](roadmap.md)) |
+| Embrapa AgroAPI | — | — | Not started ([roadmap #19](roadmap.md)) |
+
+CEPEA and HG Brasil stubs are registered in the app; implementing `FetchQuote` in each package is enough to light up the existing handlers and Redis TTLs.
+
+---
+
 ## 1. Financial market and equities (B3 and futures)
 
 | Source / API | Access | Auth / cost | Provides | Examples |

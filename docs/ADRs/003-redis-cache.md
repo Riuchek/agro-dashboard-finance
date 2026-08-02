@@ -60,3 +60,11 @@ Chosen option: **Redis** as the cache-aside store for quote/indicator payloads, 
 - [ADR-006: Source fetch cadence](006-source-fetch-cadence.md)
 - [ADR-011: Docker Compose](011-docker-compose.md)
 - [ADR-012: On-demand refresh](012-on-demand-refresh.md)
+
+## Implementation notes (Aug 2026)
+
+- Client: `github.com/redis/go-redis/v9` in `backend/internal/adapter/cache/`.
+- Keys: `{source}:{series}`; TTLs in `keys.go` per [ADR-006](006-source-fetch-cadence.md).
+- Failure policy: if `REDIS_URL` is set but Redis is unreachable at startup, log and **fall back to in-memory** cache (`factory.go`) so local dev can continue.
+- Empty `REDIS_URL` skips Redis entirely (in-memory only).
+- Runbook: [running-locally.md](../running-locally.md).

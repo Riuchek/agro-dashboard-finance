@@ -35,6 +35,13 @@ Chosen option: **Docker Compose** as the local orchestration path. Cloud/product
 - Docker required for the “happy path”
 - Compose files need care so Redis/API are not accidentally published widely ([ADR-007](007-local-hardened-access.md))
 
+## Implementation notes (Aug 2026)
+
+- `docker-compose.yml` ships **Redis only** (`redis:7-alpine`, bound to `127.0.0.1:6379`).
+- The Go **api** service block is commented out; the API runs on the host with `go run ./cmd/api` from `backend/`.
+- Host API uses `REDIS_URL=redis://127.0.0.1:6379/0`. If the API moves into Compose, switch to `redis://redis:6379/0`.
+- Runbook: [running-locally.md](../running-locally.md).
+
 ## Links
 
 - [ADR-003: Redis](003-redis-cache.md)

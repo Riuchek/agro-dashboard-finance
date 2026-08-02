@@ -155,7 +155,7 @@ export function useQuotes() {
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch("/api/quotes")
+      const res = await fetch("http://127.0.0.1:8080/api/v1/dashboard/overview")
       if (!res.ok) throw new Error("Failed to load")
       setQuotes(await res.json())
     } catch (e) {

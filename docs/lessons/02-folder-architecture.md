@@ -1,20 +1,23 @@
 # Lesson 02 — Folder architecture
 
-## Target layout (frontend)
+## Target layout (monorepo)
 
 ```
-frontend/
-  public/                 # static files served as-is (/logo.svg → public/logo.svg)
-  src/
-    app/                  # routes only (App Router conventions)
-      layout.tsx          # MUST be at app/layout.tsx (root layout)
-      page.tsx
-      globals.css
-      favicon.ico
-    components/           # reusable UI
-    hooks/                # reusable client logic (custom hooks)
-    lib/                  # API clients, formatters, pure helpers
-    types/                # shared TypeScript types
+agro-dashboard-finance/
+  backend/                # Go API — see docs/backend.md
+  frontend/
+    public/               # static files served as-is (/logo.svg → public/logo.svg)
+    src/
+      app/                # routes only (App Router conventions)
+        layout.tsx        # MUST be at app/layout.tsx (root layout)
+        page.tsx
+        globals.css
+        favicon.ico
+      components/         # reusable UI
+      hooks/              # reusable client logic (custom hooks)
+      lib/                # API clients, formatters, pure helpers
+      types/              # shared TypeScript types
+  docker-compose.yml      # Redis (local)
 ```
 
 ## What must stay at exact paths

@@ -36,6 +36,8 @@ Ask: **does this need the browser?**
 
 ## Practical pattern for this dashboard
 
+The Go API already exposes `GET /api/v1/dashboard/overview` (stocks live; commodities/FX when CEPEA/HG providers are done). The frontend will fetch that from Server Components or `lib/` on first paint — no browser token for upstream APIs.
+
 Keep the **page/layout as Server Components**. Push interactivity into small client leaves:
 
 ```
